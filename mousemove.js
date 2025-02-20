@@ -15,7 +15,7 @@ let c={};
             color:"#000000", 
             r:radius*Math.random()+30,
             an:angle,
-            spe:speed*Math.random()+0.05,
+            spe:speed*Math.random()+1,
             cenx:canvas.width / 2,
             ceny:canvas.height / 2,
             move:Math.random()*0.005+0.01
