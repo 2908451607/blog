@@ -4,7 +4,7 @@ canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 const particleCount = 20;
 const radius =30;
-const speed =0.004;
+const speed =0.005;
 var particles = [];
 var angle = 0;
 var tarx=canvas.width / 2,tary=canvas.height / 2;
@@ -15,10 +15,10 @@ let c={};
             color:"#000000", 
             r:radius*Math.random()+30,
             an:angle,
-            spe:speed*Math.random()+0.005,
+            spe:speed*Math.random()+0.01,
             cenx:canvas.width / 2,
             ceny:canvas.height / 2,
-            move:Math.random()*0.005+0.005
+            move:Math.random()*0.005+0.01
         };
     }
 window.addEventListener("mousemove",function laoin(a){
@@ -35,7 +35,7 @@ function circle(){
 function drawParticles() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     particles.forEach((particle, index) => {
-        particle.an+=particle.spe;
+        particle.an+=particle.spe*particle.r/50;
         const theta = particle.an + index * (2 * Math.PI / particleCount);
         particle.x =particle.cenx+ particle.r* Math.cos(theta)- particle.size / 2;
         particle.y =particle.ceny+ particle.r* Math.sin(theta) - particle.size / 2;
