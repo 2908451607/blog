@@ -1,0 +1,41 @@
+nav {
+  display: flex;
+  background-color: #333;
+  padding: 10px;
+  padding-left: 2%;
+}
+text{
+  color: white;
+  line-height: 50px;
+  margin-left: 10px;
+  font-size: xx-large;
+  font-family:'Courier New', Courier, monospace;
+}
+img{
+  border-radius: 10px;
+  margin-left: 45%;
+  width: 50px;
+  height: 50px;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+nav ul li {
+  float: left;
+  border-radius: 10px;
+}
+nav ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+nav ul li a:hover {
+  border-radius: 10px;
+  background-color: #111;
+}
+
