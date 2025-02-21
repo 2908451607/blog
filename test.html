@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>保存开关状态</title>
+</head>
+<body>
+  <h1>保存开关状态</h1>
+
+  <!-- 复选框作为开关 -->
+  <label>
+    <input type="checkbox" id="toggleSwitch"> 打开/关闭
+  </label>
+
+  <p id="output">当前状态：关闭</p>
+
+  <script>
+    // 获取复选框和输出元素
+    const toggleSwitch = document.getElementById('toggleSwitch');
+    const output = document.getElementById('output');
+
+    // 从 localStorage 中读取开关状态
+    const savedState = localStorage.getItem('switchState');
+    if (savedState === 'on') {
+      toggleSwitch.checked = true;
+    } else {
+      toggleSwitch.checked = false;
+    }
+
+    // 监听复选框的状态变化
+    toggleSwitch.addEventListener('change', function() {
+      if (this.checked) {
+        output.textContent = '当前状态：打开';
+        localStorage.setItem('switchState', 'on'); // 保存状态
+      } else {
+        output.textContent = '当前状态：关闭';
+        localStorage.setItem('switchState', 'off'); // 保存状态
+      }
+    });
+  </script>
+</body>
+</html>

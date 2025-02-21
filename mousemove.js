@@ -1,3 +1,4 @@
+
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 canvas.width=window.innerWidth;
@@ -7,7 +8,7 @@ const radius =30;
 const speed =0.005;
 var particles = [];
 var angle = 0;
-var tarx=canvas.width / 2,tary=canvas.height / 2;
+var tarx=100,tary=50;
 var colors=[
     '#00FF00',
     '#7700FF',
@@ -23,8 +24,8 @@ let c={};
             r:radius*Math.random()+30,
             an:angle,
             spe:speed*Math.random()+0.01,
-            cenx:canvas.width / 2,
-            ceny:canvas.height / 2,
+            cenx:100,
+            ceny:50,
             move:Math.random()*0.007+0.008,
             color:colors[Math.floor(Math.random()*7)]
         };
@@ -55,14 +56,27 @@ function drawParticles() {
     });
 }
 setInterval(circle,1);
+
+
 const toggleSwitch = document.getElementById('toggleSwitch');
 const statusText = document.getElementById('status');
+const savedata=localStorage.getItem('switchstatus');
+if (savedata=== 'on') {
+    toggleSwitch.checked = true;
+    particleCount=20;
+  } else {
+    toggleSwitch.checked = false;
+    particleCount=0;
+  }
 toggleSwitch.addEventListener('change', function() {
   if (this.checked) {
     particleCount=20;
+    localStorage.setItem('switchstatus','on');
+    let c={};
+    
   } else {
     particleCount=0;
-    alert('关闭效果只在当前界面有效哦！（技术有限）')
+    localStorage.setItem('switchstatus','off');
   }
 });
 //
