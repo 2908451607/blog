@@ -2,23 +2,31 @@ const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
-const particleCount = 20;
+var particleCount=20;
 const radius =30;
 const speed =0.005;
 var particles = [];
 var angle = 0;
 var tarx=canvas.width / 2,tary=canvas.height / 2;
+var colors=[
+    '#00FF00',
+    '#7700FF',
+    '#FFBB00',
+    '#AA0000',
+    '#0000FF'
+]
 let c={};
     for (var i = 0; i < particleCount; i++) {
         particles[i]={
-            size:Math.random()*0.5+0.7,
+            size:Math.random()*0.5+0.9,
             color:"#000000", 
             r:radius*Math.random()+30,
             an:angle,
-            spe:speed*Math.random()+0.05,
+            spe:speed*Math.random()+0.01,
             cenx:canvas.width / 2,
             ceny:canvas.height / 2,
-            move:Math.random()*0.005+0.01
+            move:Math.random()*0.007+0.008,
+            color:colors[Math.floor(Math.random()*7)]
         };
     }
 window.addEventListener("mousemove",function laoin(a){
@@ -47,13 +55,16 @@ function drawParticles() {
     });
 }
 setInterval(circle,1);
-let person={
-    head,
-    body,
-    hands,
-    legs,
-    foots,
-};
+const toggleSwitch = document.getElementById('toggleSwitch');
+const statusText = document.getElementById('status');
+toggleSwitch.addEventListener('change', function() {
+  if (this.checked) {
+    particleCount=20;
+  } else {
+    particleCount=0;
+    alert('关闭效果只在当前界面有效哦！（技术有限）')
+  }
+});
 //
 //                            _ooOoo_
 //                           o8888888o

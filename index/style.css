@@ -2,13 +2,6 @@
 body {
     font-family: Arial, sans-serif;
   }
-#canvas1{
-  position: fixed;
-  z-index: 9990;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-}
   .top-area{
     position: relative;
     display: flex;
@@ -108,5 +101,5 @@ body {
     margin: 0 auto;
   }
   .third-part{
-    
+    color: #0c9300;
   }
