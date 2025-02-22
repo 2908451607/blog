@@ -1,4 +1,13 @@
 /* 基本样式 */
 body {
-    
+    width: 100%;
+    height: 100%;
+  }
+  .pum{
+    width: 100%;
+    height: 300px;
+    background-color: rgb(64, 255, 0);
+    margin: 0 auto;
+    background-image: url('../image/pym.jpg');
+    background-size:contain;
   }
