@@ -100,6 +100,42 @@ body {
     background-size: cover;
     margin: 0 auto;
   }
-  .third-part{
-    color: #0c9300;
+.imagestore{
+  width: 30%;
+  height: 50px;
+  margin: 10px auto;
+  border-bottom: 1px solid #6b6b6b;
+  text-align: center;
+  padding-top: 40px;
+  font-size: xx-large;
+}
+.third-part{
+  margin: 0 auto;
+  width: inherit;
+  height: 500;
+  display: flex;
+}
+  .imgarea{
+    margin-top: 10px;
+    margin-left: 30px;
+    width: 600px;
+    height:450px;
+    background-image: url('../image/together.jpg');
+    background-size:cover;
+  }
+  .imgarea1{
+    width: 626px;
+    height:470px;
+    background-image: url('../image/together1.jpg');
+    background-size:cover;
+  }
+  .learnmore{
+    width: 20px;
+    height: 500px;
+    margin-left: 30px;
+    writing-mode: vertical-lr;
+    text-align: center;
+    font-size: x-large;
+    font-family: 'KaiTi';
+    color: #6b6b6b;
   }
