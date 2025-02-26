@@ -37,7 +37,7 @@ body {
     width: 450px;
     height: 200px;
     margin: 30px auto;
-
+    transition: 200ms;
     background-color: #f4f4f4;
     box-shadow: 0 0 5px #6b6b6b;
     color: black;
@@ -48,7 +48,7 @@ body {
   .introbutton-button:hover{
     width: 460px;
     height: 210px;
-    
+    border: 2px solid rgb(220, 180, 0);
   }
   .button-left{
     width: 55%;
@@ -111,9 +111,11 @@ body {
 }
 .third-part{
   margin: 0 auto;
-  width: inherit;
   height: 500;
+  width: 100%;
   display: flex;
+  justify-content: center;
+  text-decoration: none;
 }
   .imgarea{
     margin-top: 10px;
@@ -138,4 +140,10 @@ body {
     font-size: x-large;
     font-family: 'KaiTi';
     color: #6b6b6b;
+    
+    transition: 200ms;
+  }
+  .learnmore:hover{
+    font-size: xx-large;
+    color: rgb(3, 116, 222);
   }

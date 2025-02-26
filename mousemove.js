@@ -59,7 +59,6 @@ setInterval(circle,1);
 
 
 const toggleSwitch = document.getElementById('toggleSwitch');
-const statusText = document.getElementById('status');
 const savedata=localStorage.getItem('switchstatus');
 if (savedata=== 'on') {
     toggleSwitch.checked = true;

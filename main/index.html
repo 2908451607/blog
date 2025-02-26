@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>牢印的个人博客</title>
+<script id="check-dark-mode">(()=>{const e=localStorage.getItem("vitepress-theme-appearance")||"auto",a=window.matchMedia("(prefers-color-scheme: dark)").matches;(!e||e==="auto"?a:e==="dark")&&document.documentElement.classList.add("dark")})();</script>
+    <script id="check-mac-os">document.documentElement.classList.toggle("mac",/Mac|iPhone|iPod|iPad/i.test(navigator.platform));</script>
 <link rel="icon" href="../image/logo.jpg" type="image/jpg">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -16,7 +18,7 @@
     <ul>
       <li ><a href="../main/index.html">首页</a></li>
       <li ><a href="../about-me/index.html">个人简介</a></li>
-      <li ><a href="#contact">相册</a></li>
+      <li ><a href="../imagestore/index.html">相册</a></li>
       <li ><a href="#about">感悟</a></li>
       <li ><a href="#about">生活</a></li>
       <li ><a href="#about">留言板</a></li>
@@ -32,6 +34,8 @@
   <!--公共部分-->
   <canvas id="canvas1"></canvas>
   <script src="../mousemove.js"></script>
+
+
 
 
 
@@ -66,10 +70,10 @@
 </div>
 <!--主页相册部分-->
 <div class="imagestore"><head style="text-align: center;">相册</head></div>
-<div class="third-part">
+<a class="third-part"  href="../imagestore/index.html">
   <div class="imgarea"></div>
   <div class="imgarea1"></div>
-  <a class="learnmore">了解更多  ></a>
-</div>
+  <text class="learnmore" >了解更多  ></text>
+</a>
 </body>
 </html>
