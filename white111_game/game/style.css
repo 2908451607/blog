@@ -13,6 +13,7 @@ canvas {
     border-radius: 10px;
     box-shadow: 0 0 10px gray;
     background-color: white;
+    object-fit: cover;
 }
 .control-bored{
     width: 30%;
@@ -65,7 +66,7 @@ canvas {
     background-color: tan;
     height: 25px;
     width: 0;
-    transition: 500ms;
+    transition: 100ms;
 }
 #endingtext-area{
     position: fixed;

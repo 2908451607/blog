@@ -8,7 +8,7 @@ const savedata=localStorage.getItem('history-memor');
 if(savedata!=null)document.getElementById('history').innerHTML=savedata;
 const g=0.05;
 var second=0,minute=0;
-var settime,timelen;
+var settime,timelen,action=1;
 start.addEventListener('click',function(){
     const temp=String(minute).padStart(2,'0')+':'+String(second).padStart(2,'0');
     document.getElementById('text1').innerHTML=temp;
@@ -202,7 +202,7 @@ setInterval(()=>{
     show_protect_time.style.width=length;
     protectcircle.r=centry.size+10;
     if(protect_time>0)protect_time--;
-},1);
+},10);
 gameLoop();
 
 
