@@ -1,0 +1,89 @@
+body{
+    position: relative;
+    display: flex;
+}
+canvas {
+    position: relative;
+    display: block;
+    position: fixed;
+    right: 0;
+    border: 1px solid #000000;
+    size: border-box;
+    z-index: 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+    background-color: white;
+}
+.control-bored{
+    width: 30%;
+    display: grid;
+}
+#start{
+    width: 200px;
+    height: 50px;
+    margin: 20px auto;
+    border-radius: 20px;
+    transition: 100ms;
+}
+#start:active{
+    width: 210px;
+    height: 55px;
+}
+#text1{
+    text-align: center;
+    font-size: x-large;
+    margin-bottom: 50px;
+}
+#show-pro{
+    width: 100%;
+    height: 75px;
+}
+.lenth-out{
+    height: 25px;
+    width: 90%;
+    border: 1px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+}
+#protect-time{
+    background-color: rgba(140, 253, 255, 0.5);
+    height: 25px;
+    width: 20%;
+}
+#weight{
+    width: 90%;
+    height: 75px;
+}
+#weight-lenth-border{
+    height: 25px;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+}
+#weight-length{
+    background-color: tan;
+    height: 25px;
+    width: 0;
+    transition: 500ms;
+}
+#endingtext-area{
+    position: fixed;
+    display: flex;
+    width: 0;
+    height: 0;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+#history-area{
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    display: grid;
+    font-size: x-large;
+}
+#history-head{
+    width: 100%;
+}
