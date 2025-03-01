@@ -12,7 +12,7 @@ var settime,timelen,action=1;
 start.addEventListener('click',function(){
     const temp=String(minute).padStart(2,'0')+':'+String(second).padStart(2,'0');
     document.getElementById('text1').innerHTML=temp;
-    const settime1=setInterval(give, 50);
+    const settime1=setInterval(give, 100);
     const timelenth=setInterval(memortime,1000);
     settime=settime1;
     timelen=timelenth;
@@ -39,7 +39,7 @@ function give(){
     //id为1为普通球，1以上为技能球
     if(Math.random()>0.05){
         eats.push({
-            x:Math.random()*1050,
+            x:Math.random()*900,
             y:0,
             vy:Math.random()+2+1,
             vx:0,
