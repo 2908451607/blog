@@ -15,7 +15,7 @@ var colors=[
     '#FFBB00',
     '#AA0000',
     '#0000FF'
-]
+];
 let c={};
     for (var i = 0; i < particleCount; i++) {
         particles[i]={
