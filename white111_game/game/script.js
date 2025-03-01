@@ -202,7 +202,7 @@ setInterval(()=>{
     show_protect_time.style.width=length;
     protectcircle.r=centry.size+10;
     if(protect_time>0)protect_time--;
-},10);
+},1);
 gameLoop();
 
 
