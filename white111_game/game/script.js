@@ -24,7 +24,7 @@ start.addEventListener('click',function(){
     }
 },{once:true});
 var juge=1;
-var protect_time=0;
+var protect_time=1;
 var temp;
 let centry = {
     x:450,
@@ -88,7 +88,8 @@ const keys = {
     w:false,
     s:false,
     d:false,
-    Enter:false
+    Enter:false,
+    space:false
 };
 document.addEventListener('keydown', (e) => {
     if (keys.hasOwnProperty(e.key)) {
@@ -170,7 +171,7 @@ function gameLoop() {
             if(eat.id==1){
                 if(!protect_time){
                     eats[index]={};
-                    centry.size+=7.5;
+                    centry.size+=3;
                     centry.speed-=0.4;
                 }
             }
@@ -182,14 +183,14 @@ function gameLoop() {
         }
         if(protect_time>0){
             //保护罩碰撞机制
-            if(Math.abs(eat.x-centry.x)<protectcircle.r&&Math.abs(eat.y-centry.y)<protectcircle.r&&eat.id==1){
-                const a=centry.x-eat.x;
-                const b=centry.y-eat.y;
-                const l=Math.sqrt(a*a+b*b);
+            const a=centry.x-eat.x;
+            const b=centry.y-eat.y;
+            const l=Math.sqrt(a*a+b*b);
+            if(l<protectcircle.r&&eat.id==1){
                 const v=eat.vx*a/l+eat.vy*b/l;
                 if(v>0){
-                    eat.vx=-v*a/l;
-                    eat.vy=-v*b/l;
+                    eat.vx=-v*a/l*0.8;
+                    eat.vy=-v*b/l*0.8;
                 }
             }
         }
