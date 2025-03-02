@@ -133,7 +133,7 @@ function draw() {
         ctx.beginPath();
         ctx.arc(centry.x, centry.y, centry.size, 0, Math.PI*2);
         ctx.fill(); 
-        ctx.fillText('Monica',centry.x,centry.y-centry.size-10);
+        ctx.fillText('白何乐',centry.x,centry.y-centry.size-10);
         ctx.textAlign='center';
     eats.forEach((eat,index) => {
         ctx.fillStyle = eat.color;
@@ -204,7 +204,7 @@ function gameLoop() {
             ending.style.width='100%';
             ending.style.height='100%';
             document.getElementById('endingtext-area').innerHTML='游戏结束';
-            alert('Monica吃的走不动了！');
+            alert('白何乐吃的走不动了！');
         },2000);
         juge=0;
         eats.length=0;
