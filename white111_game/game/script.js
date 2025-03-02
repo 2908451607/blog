@@ -272,7 +272,7 @@ gameLoop();
 
 
 
-
+//开始按钮触发的操作
 function startaction(){
     if(start_juge){
         var audio=document.getElementById('background-music');
