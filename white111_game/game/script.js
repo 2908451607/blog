@@ -203,7 +203,7 @@ function gameLoop() {
             if(eat.id==1){
                 if(!protect_time){
                     eats[index]={};
-                    centry.size+=3;
+                    centry.size+=5;
                     centry.speed-=0.4;
                 }
             }
@@ -214,7 +214,7 @@ function gameLoop() {
             }
             else if(eat.id==3){
                 eats[index]={};
-                centry.size-=6;
+                centry.size-=10;
                 centry.speed+=0.8;
                 if(centry.speed>5){
                     centry.speed=5;
