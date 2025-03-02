@@ -5,27 +5,33 @@ const show_protect_time=document.getElementById('protect-time');
 const white_weight=document.getElementById('weight-length');
 const ending=document.getElementById('endingtext-area');
 const savedata=localStorage.getItem('history-memor');
+const headImage=document.getElementById('head-image');
 if(savedata!=null)document.getElementById('history').innerHTML=savedata;
 const g=0.05;
 var second=0,minute=0;
 var settime,timelen,action=1;
+var start_juge=1;
+var give_pro,give_nor;
 start.addEventListener('click',function(){
-    const temp=String(minute).padStart(2,'0')+':'+String(second).padStart(2,'0');
-    document.getElementById('text1').innerHTML=temp;
-    const settime1=setInterval(give, 100);
-    const timelenth=setInterval(memortime,1000);
-    settime=settime1;
-    timelen=timelenth;
+    if(start_juge){
+        const temp=String(minute).padStart(2,'0')+':'+String(second).padStart(2,'0');
+        document.getElementById('text1').innerHTML=temp;
+        give_nor=setInterval(give_normal, 100);
+        give_pro=setInterval(give_protect, 15000);
+        const timelenth=setInterval(memortime,1000);
+        timelen=timelenth;
+        start_juge=0;
+    }
 },{once:true});
 var juge=1;
 var protect_time=0;
 var temp;
 let centry = {
-    x:400,
+    x:450,
     y:575,
     size: 25,
     speed: 5,
-    color: 'tan'
+    color: 'white'
 };
 let protectcircle={
     x:centry.x,
@@ -35,32 +41,29 @@ let protectcircle={
 }
 //给小球样式
 let eats=[];
-function give(){
+function give_normal(){
     //id为1为普通球，1以上为技能球
-    if(Math.random()>0.05){
         eats.push({
             x:Math.random()*900,
             y:0,
-            vy:Math.random()+2+1,
+            vy:Math.random()*3+3,
             vx:0,
             size:3,
-            color:'rgb(255, 187, 1)',
+            color:'rgb(246, 255, 0)',
             id:1
         });
     }
-    else{
-        eats.push({
-            x:Math.random()*800,
-            y:0,
-            vy:Math.random(),
-            vx:0,
-            size:6,
-            color:'rgba(140, 253, 255, 1)',
-            id:2
-        });
-    }
-};
-
+function give_protect(){
+    eats.push({
+        x:Math.random()*800,
+        y:0,
+        vy:2,
+        vx:0,
+        size:6,
+        color:'rgba(140, 253, 255, 1)',
+        id:2
+    });
+}
 
   
 //存储游戏进行的时间
@@ -110,8 +113,16 @@ function update() {
     if (keys.ArrowRight&& centry.x + centry.size < canvas.width) {
         centry.x+=centry.speed;
     }
-    if(keys.w){
-        start.click='true';
+    if(keys.Enter){
+        if(start_juge){
+            const temp=String(minute).padStart(2,'0')+':'+String(second).padStart(2,'0');
+            document.getElementById('text1').innerHTML=temp;
+            give_nor=setInterval(give_normal, 100);
+            give_pro=setInterval(give_protect, 15000);
+            const timelenth=setInterval(memortime,1000);
+            timelen=timelenth;
+            start_juge=0;
+        }
     }
 }
 
@@ -122,7 +133,7 @@ function draw() {
         ctx.beginPath();
         ctx.arc(centry.x, centry.y, centry.size, 0, Math.PI*2);
         ctx.fill(); 
-        ctx.fillText('白何乐',centry.x,centry.y-centry.size);
+        ctx.fillText('Monica',centry.x,centry.y-centry.size-10);
         ctx.textAlign='center';
     eats.forEach((eat,index) => {
         ctx.fillStyle = eat.color;
@@ -137,6 +148,14 @@ function draw() {
         ctx.arc(centry.x, centry.y,protectcircle.r, 0, Math.PI*2);
         ctx.fill(); 
     }
+    //绘画头像
+    const imagex=centry.x+'px';
+    const imagey=centry.y+'px';
+    const imageR=centry.size*2+'px';
+    headImage.style.left=imagex;
+    headImage.style.top=imagey;
+    headImage.style.height=imageR;
+    headImage.style.width=imageR;
 }
 //整体动画
 function gameLoop() {
@@ -145,22 +164,25 @@ function gameLoop() {
     eats.forEach((eat,index) => {
         eat.y+=eat.vy;
         eat.x+=eat.vx;
-        eat.vy+=g;
+        if(eat.id==1)eat.vy+=g;
         //吃豆机制
-        if(Math.abs(eat.x-centry.x)<centry.size&&Math.abs(eat.y-centry.y)<centry.size&&centry.speed&&!protect_time){
+        if(Math.abs(eat.x-centry.x)<centry.size&&Math.abs(eat.y-centry.y)<centry.size&&centry.speed){
             if(eat.id==1){
-                eats[index]={};
-                centry.size+=7.5;
-                centry.speed-=0.4;
+                if(!protect_time){
+                    eats[index]={};
+                    centry.size+=7.5;
+                    centry.speed-=0.4;
+                }
             }
             else if(eat.id==2){
                 eats[index]={};
                 protect_time+=1000;
+                if(protect_time>1000) protect_time=1000;
             }
         }
         if(protect_time>0){
             //保护罩碰撞机制
-            if(Math.abs(eat.x-centry.x)<protectcircle.r&&Math.abs(eat.y-centry.y)<protectcircle.r){
+            if(Math.abs(eat.x-centry.x)<protectcircle.r&&Math.abs(eat.y-centry.y)<protectcircle.r&&eat.id==1){
                 const a=centry.x-eat.x;
                 const b=centry.y-eat.y;
                 const l=Math.sqrt(a*a+b*b);
@@ -182,27 +204,26 @@ function gameLoop() {
             ending.style.width='100%';
             ending.style.height='100%';
             document.getElementById('endingtext-area').innerHTML='游戏结束';
-            alert('白何乐吃的走不动了！');
+            alert('Monica吃的走不动了！');
         },2000);
         juge=0;
         eats.length=0;
         if(savedata<temp||savedata===null){
             localStorage.setItem('history-memor',temp);
         }
-        clearInterval(settime);
+        clearInterval(give_nor);
+        clearInterval(give_pro);
         clearInterval(timelen);
     }
-    requestAnimationFrame(gameLoop);
-}
-//数值刷新
-setInterval(()=>{
+    //数值刷新
     const weightlenth=(5-centry.speed)*20+'%';
     const length=protect_time/10+'%';
     white_weight.style.width=weightlenth;
     show_protect_time.style.width=length;
     protectcircle.r=centry.size+10;
     if(protect_time>0)protect_time--;
-},1);
+    requestAnimationFrame(gameLoop);
+}
 gameLoop();
 
 
