@@ -73,7 +73,7 @@ canvas {
     border: 1px solid black;
     border-radius: 10px;
     overflow: hidden;
-    background-color: white;
+    background-color: rgb(235, 235, 235);
 }
 #protect-time{
     background-color: rgba(0, 248, 41, 0.5);
@@ -90,7 +90,7 @@ canvas {
     border: 1px solid black;
     border-radius: 10px;
     overflow: hidden;
-    background-color: white;
+    background-color: rgb(235, 235, 235);
 }
 #weight-length{
     background-color: rgb(255, 225, 0);
