@@ -6,6 +6,7 @@ const white_weight=document.getElementById('weight-length');
 const ending=document.getElementById('endingtext-area');
 const savedata=localStorage.getItem('history-memor');
 const headImage=document.getElementById('head-image');
+const countDown=document.getElementById('count-down');
 //若记录不为空则写入历史记录
 if(savedata!=null)document.getElementById('history').innerHTML=savedata;
 
@@ -18,26 +19,11 @@ var give_pro,give_nor,give_redu;
 var juge=1;
 var protect_time=1;
 var temp;
-window.addEventListener('mousemove',function(){
-    var audio=document.getElementById('background-music');
-    audio.play();
-});
 
 
 //开始按钮
 start.addEventListener('click',function(){
-    setTimeout(()=>{
-        if(start_juge){
-            const temp=String(minute).padStart(2,'0')+':'+String(second).padStart(2,'0');
-            document.getElementById('text1').innerHTML=temp;
-            give_nor=setInterval(give_normal, 100);
-            give_pro=setInterval(give_protect,7000);
-            give_redu=setInterval(give_reduce,10000);
-            const timelenth=setInterval(memortime,1000);
-            timelen=timelenth;
-            start_juge=0;
-        }
-    },3000)
+    startaction();
 },{once:true});
 
 
@@ -150,40 +136,34 @@ document.addEventListener('keyup', (e) => {
     }
 });
 function update() {
-    if (keys.ArrowUp&& centry.y- centry.size> 0) {
-        centry.y-=centry.speed;
-    }
-    if (keys.ArrowDown && centry.y + centry.size < canvas.height) {
-        centry.y+=centry.speed;
-    }
-    if (keys.ArrowLeft&& centry.x- centry.size > 0) {
-        centry.x-=centry.speed;
-    }
-    if (keys.ArrowRight&& centry.x + centry.size < canvas.width) {
-        centry.x+=centry.speed;
-    }
-    if(keys.Enter){
-        if(start_juge){
-            const temp=String(minute).padStart(2,'0')+':'+String(second).padStart(2,'0');
-            document.getElementById('text1').innerHTML=temp;
-            give_nor=setInterval(give_normal, 100);
-            give_pro=setInterval(give_protect, 15000);
-            const timelenth=setInterval(memortime,1000);
-            timelen=timelenth;
-            start_juge=0;
+    if(!start_juge){
+
+        if (keys.ArrowUp&& centry.y- centry.size> 0) {
+            centry.y-=centry.speed;
+        }
+        if (keys.ArrowDown && centry.y + centry.size < canvas.height) {
+            centry.y+=centry.speed;
+        }
+        if (keys.ArrowLeft&& centry.x- centry.size > 0) {
+            centry.x-=centry.speed;
+        }
+        if (keys.ArrowRight&& centry.x + centry.size < canvas.width) {
+            centry.x+=centry.speed;
         }
     }
+    if(keys.Enter){
+        startaction();
+    }
 }
-
 
 
 
 function draw() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
     //绘画头像上方字样
-        ctx.fillStyle = centry.color;
-        ctx.fillText('白何乐',centry.x,centry.y-centry.size-10);
-        ctx.textAlign='center';
+    ctx.fillStyle = centry.color;
+    ctx.fillText('白何乐',centry.x,centry.y-centry.size-10);
+    ctx.textAlign='center';
     //绘画豆子（普通豆和技能豆）
     eats.forEach((eat,index) => {
         ctx.fillStyle = eat.color;
@@ -293,3 +273,31 @@ gameLoop();
 
 
 
+function startaction(){
+    if(start_juge){
+        var audio=document.getElementById('background-music');
+        audio.play();
+        document.getElementById('count-down').innerHTML=3;
+        setTimeout(()=>{
+            document.getElementById('count-down').innerHTML=2;
+        },1000);
+        setTimeout(()=>{
+            document.getElementById('count-down').innerHTML=1;
+        },2000);
+        setTimeout(()=>{
+            document.getElementById('count-down').innerHTML='';
+        },3000);
+        setTimeout(()=>{
+            if(start_juge){
+                const temp=String(minute).padStart(2,'0')+':'+String(second).padStart(2,'0');
+                document.getElementById('text1').innerHTML=temp;
+                give_nor=setInterval(give_normal, 100);
+                give_pro=setInterval(give_protect,7000);
+                give_redu=setInterval(give_reduce,10000);
+                const timelenth=setInterval(memortime,1000);
+                timelen=timelenth;
+                start_juge=0;
+            }
+        },3000)
+    }
+}
