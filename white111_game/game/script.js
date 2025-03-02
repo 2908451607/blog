@@ -113,7 +113,7 @@ function memortime(){
 
 
 //键盘监视
-const keys = {
+var keys = {
     ArrowUp: false,
     ArrowDown: false,
     ArrowLeft: false,
@@ -162,7 +162,7 @@ function draw() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
     //绘画头像上方字样
     ctx.fillStyle = centry.color;
-    ctx.fillText('白何乐',centry.x,centry.y-centry.size-10);
+    ctx.fillText('林玉婷',centry.x,centry.y-centry.size-10);
     ctx.textAlign='center';
     //绘画豆子（普通豆和技能豆）
     eats.forEach((eat,index) => {
@@ -245,14 +245,30 @@ function gameLoop() {
         setTimeout(() => {
             ending.style.width='100%';
             ending.style.height='100%';
-            document.getElementById('endingtext-area').innerHTML='游戏结束';
-            alert('白何乐吃的走不动了！');
+            document.getElementById('endingtext-area').innerHTML='游戏结束<br>你未能拯救林玉婷！';
+            alert('林玉婷吃的走不动了！');
         },2000);
         juge=0;
         eats.length=0;
         if(savedata<temp||savedata===null){
             localStorage.setItem('history-memor',temp);
         }
+        clearInterval(give_nor);
+        clearInterval(give_pro);
+        clearInterval(give_redu);
+        clearInterval(timelen);
+    }
+    //撑到三分钟了，胜利
+    if(minute>=3&&juge&&second>=1){
+        setTimeout(()=>{
+            ending.style.width='100%';
+            ending.style.height='100%';
+            document.getElementById('endingtext-area').innerHTML='Congratulations!<br>你成功拯救了林玉婷！';
+        },2000);
+        keys={};
+        juge=0;
+        eats.length=0;
+        localStorage.setItem('03:00',temp);
         clearInterval(give_nor);
         clearInterval(give_pro);
         clearInterval(give_redu);
