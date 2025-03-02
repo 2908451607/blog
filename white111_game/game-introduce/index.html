@@ -31,6 +31,8 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
         }
         .start{
             text-decoration: none;
@@ -53,10 +55,30 @@
             height: 45px;
             width: 180px;
         }
+        .logo{
+            position: absolute;
+            width: 150px;
+            height: 50px;
+            display: flex;
+            top: 5px;
+            left: 5px;
+            line-height: 50px;
+            font-size: x-large;
+            font-family: 'KaiTi';
+            font-weight: 700;
+        }.img{
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="content">
+        <div class="logo">
+            <img src="../../image/logo.jpg" class="img">
+            <text>牢印出品</text>
+        </div>
         <h1>林玉婷减肥记</h1>
         <h2>游戏介绍</h2>
         <p>
@@ -70,5 +92,6 @@
             坚持三分钟即可获得胜利拯救林玉婷
         </p>
         <a href="../game/index.html" class="start">开始游戏</a>
-    </body>
+    </div>
+</body>
 </html>
