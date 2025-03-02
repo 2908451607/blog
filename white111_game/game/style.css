@@ -12,10 +12,9 @@ canvas {
     position: fixed;
     top: 0;
     left: 0;
-    border: 1px solid #000000;
+    border-right: 5px solid #000000;
     size: border-box;
     z-index: 0;
-    border-radius: 10px;
     box-shadow: 0 0 10px gray;
     background-color: white;
     object-fit: cover;
@@ -85,7 +84,7 @@ canvas {
     background-color: white;
 }
 #weight-length{
-    background-color: rgb(213, 0, 0);
+    background-color: rgb(255, 225, 0);
     height: 25px;
     width: 0;
     transition: 100ms;
