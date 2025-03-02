@@ -53,6 +53,9 @@ canvas {
     margin: 20px auto;
     border-radius: 20px;
     transition: 100ms;
+    
+    border: none;
+    box-shadow: 0 0 5px black;
 }
 #start:active{
     width: 210px;
