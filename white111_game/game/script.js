@@ -281,7 +281,7 @@ function gameLoop() {
     show_protect_time.style.width=length;
     //始终保持保护罩比头像半径长10px
     protectcircle.r=centry.size+10;
-    //if(protect_time>0)protect_time--;
+    if(protect_time>0)protect_time--;
     requestAnimationFrame(gameLoop);
 }
 gameLoop();
@@ -307,7 +307,7 @@ function startaction(){
             if(start_juge){
                 const temp=String(minute).padStart(2,'0')+':'+String(second).padStart(2,'0');
                 document.getElementById('text1').innerHTML=temp;
-                give_nor=setInterval(give_normal, 1);
+                give_nor=setInterval(give_normal, 100);
                 give_pro=setInterval(give_protect,7000);
                 give_redu=setInterval(give_reduce,10000);
                 const timelenth=setInterval(memortime,1000);
