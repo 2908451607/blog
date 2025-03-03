@@ -19,10 +19,13 @@ for(var i=0;i<count;i++){
 }
     */
 
+let keys={
+    
+}
 balls.push({
     x:20,
     y:20, 
-    vx:10,
+    vx:3,
     vy:0,
     r:20,
     m:3,
@@ -31,7 +34,7 @@ balls.push({
 balls.push({
     x:500,
     y:20,
-    vx:-5,
+    vx:2,
     vy:0,
     r:20,
     m:1,

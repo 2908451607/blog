@@ -27,7 +27,7 @@ canvas {
     box-shadow: 0 0 10px gray;
     background-color: white;
     object-fit: cover;
-    background-image: url('../../image/33857552_135548833100_2.jpg');
+    background-image: url('../image/background.jpg');
     background-size: cover;
 }
 #head-image{
