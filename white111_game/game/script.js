@@ -162,7 +162,7 @@ function draw() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
     //绘画头像上方字样
     ctx.fillStyle = centry.color;
-    ctx.fillText('林玉婷',centry.x,centry.y-centry.size-10);
+    ctx.fillText('白何乐',centry.x,centry.y-centry.size-10);
     ctx.textAlign='center';
     //绘画豆子（普通豆和技能豆）
     eats.forEach((eat,index) => {
@@ -245,8 +245,8 @@ function gameLoop() {
         setTimeout(() => {
             ending.style.width='100%';
             ending.style.height='100%';
-            document.getElementById('endingtext-area').innerHTML='游戏结束<br>你未能拯救林玉婷！';
-            alert('林玉婷吃的走不动了！');
+            document.getElementById('endingtext-area').innerHTML='游戏结束<br>你未能拯救白何乐！';
+            alert('白何乐吃的走不动了！');
         },2000);
         juge=0;
         eats.length=0;
@@ -263,7 +263,7 @@ function gameLoop() {
         setTimeout(()=>{
             ending.style.width='100%';
             ending.style.height='100%';
-            document.getElementById('endingtext-area').innerHTML='Congratulations!<br>你成功拯救了林玉婷！';
+            document.getElementById('endingtext-area').innerHTML='Congratulations!<br>你成功拯救了白何乐！';
         },2000);
         keys={};
         juge=0;
@@ -281,7 +281,7 @@ function gameLoop() {
     show_protect_time.style.width=length;
     //始终保持保护罩比头像半径长10px
     protectcircle.r=centry.size+10;
-    if(protect_time>0)protect_time--;
+    //if(protect_time>0)protect_time--;
     requestAnimationFrame(gameLoop);
 }
 gameLoop();
@@ -307,7 +307,7 @@ function startaction(){
             if(start_juge){
                 const temp=String(minute).padStart(2,'0')+':'+String(second).padStart(2,'0');
                 document.getElementById('text1').innerHTML=temp;
-                give_nor=setInterval(give_normal, 100);
+                give_nor=setInterval(give_normal, 1);
                 give_pro=setInterval(give_protect,7000);
                 give_redu=setInterval(give_reduce,10000);
                 const timelenth=setInterval(memortime,1000);
