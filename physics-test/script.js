@@ -20,7 +20,7 @@ for(var i=0;i<count;i++){
     */
 
 let keys={
-    
+
 }
 balls.push({
     x:20,
@@ -28,7 +28,7 @@ balls.push({
     vx:3,
     vy:0,
     r:20,
-    m:3,
+    m:999,
     color:'rgb(255, 30, 30)'
 });
 balls.push({
