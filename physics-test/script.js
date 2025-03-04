@@ -2,9 +2,10 @@ const canvas = document.getElementById('mycanvas');
 const ctx = canvas.getContext('2d');
 ctx.translate(0,700);
 ctx.scale(1,-1);
-const g=0.05;
+const g=0.06;
 var balls=[];
 const count=20;
+var hitcount=0;
 /*
 for(var i=0;i<count;i++){
     balls.push({
@@ -25,7 +26,7 @@ let keys={
 balls.push({
     x:20,
     y:20, 
-    vx:5,
+    vx:1,
     vy:0,
     r:20,
     m:3,
@@ -34,7 +35,7 @@ balls.push({
 balls.push({
     x:500,
     y:20,
-    vx:1,
+    vx:0,
     vy:0,
     r:20,
     m:1,
@@ -87,17 +88,19 @@ function updata(){
                     ball.y+=(ball.r+ball1.r-l)*b/l*(ball1.m/(ball.m+ball1.m));
                     ball1.x-=(ball.r+ball1.r-l)*a/l*(ball.m/(ball.m+ball1.m));
                     ball.y-=(ball.r+ball1.r-l)*b/l*(ball.m/(ball.m+ball1.m));
-                    const ballback=(ball.m-ball1.m)/(ball.m+ball1.m)*vball-ball1.m*2/(ball.m+ball1.m)*vball1;
+                    const ballback=(ball.m-ball1.m)/(ball.m+ball1.m)*vball+ball1.m*2/(ball.m+ball1.m)*vball1;
                     ball.vx=ballback*a/l;
                     ball.vy=ballback*b/l;
-                    const ball1back=ball.m*2/(ball.m+ball1.m)*vball-(ball1.m-ball.m)/(ball.m+ball1.m)*vball1;
+                    const ball1back=ball.m*2/(ball.m+ball1.m)*vball+(ball1.m-ball.m)/(ball.m+ball1.m)*vball1;
                     ball1.vx=ball1back*a/l;
                     ball1.vy=ball1back*b/l;
-                    
+                    hitcount++;
                 }
-                document.getElementById('red').innerHTML='总动能:'+(ball1.vx*ball1.vx*ball1.m+ball.vx*ball.vx*ball.m);
-                document.getElementById('blue').innerHTML='总动量:'+(ball1.vx*ball1.m+ball.vx*ball.m);
-                
+                const Va=Math.sqrt(ball.vx*ball.vx+ball.vy*ball.vy);
+                const Vb=Math.sqrt(ball1.vx*ball1.vx+ball1.vy*ball1.vy);
+                document.getElementById('red').innerHTML='总动能:'+(Vb*Vb*ball1.m*0.5+Va*Va*ball.m*0.5);
+                document.getElementById('blue').innerHTML='水平总动量:'+(ball1.vx*ball1.m+ball.vx*ball.m);
+                document.getElementById('hit').innerHTML='碰撞次数：'+hitcount;
             }
         })
     })
