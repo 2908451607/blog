@@ -5,6 +5,8 @@ nav {
   padding-left: 2%;
 }
 text{
+  position: absolute;
+  right: 20px;
   color: white;
   line-height: 50px;
   margin-left: 10px;
@@ -12,6 +14,8 @@ text{
   font-family:'Courier New', Courier, monospace;
 }
 img{
+  position: absolute;
+  right: 280px;
   border-radius: 10px;
   margin-left: 30%;
   width: 50px;

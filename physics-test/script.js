@@ -6,6 +6,7 @@ const g=0.06;
 var balls=[];
 const count=20;
 var hitcount=0;
+var historyL=0;
 /*
 for(var i=0;i<count;i++){
     balls.push({
@@ -18,7 +19,7 @@ for(var i=0;i<count;i++){
         color:'rgb(42, 42, 42)'
     });
 }
-    */
+*/
 
 let keys={
 
@@ -26,10 +27,10 @@ let keys={
 balls.push({
     x:20,
     y:20, 
-    vx:1,
+    vx:0.5,
     vy:0,
     r:20,
-    m:3,
+    m:999,
     color:'rgb(255, 30, 30)'
 });
 balls.push({
@@ -81,7 +82,7 @@ function updata(){
                 const a=ball.x-ball1.x;
                 const b=ball.y-ball1.y;
                 const l=Math.sqrt(a*a+b*b);
-                if(l<ball.r+ball1.r){
+                if((l<ball.r+ball1.r)&&l<historyL){
                     const vball=ball.vx*a/l+ball.vy*b/l;
                     const vball1=ball1.vx*a/l+ball1.vy*b/l;
                     ball.x+=(ball.r+ball1.r-l)*a/l*(ball1.m/(ball.m+ball1.m));
@@ -96,6 +97,7 @@ function updata(){
                     ball1.vy=ball1back*b/l;
                     hitcount++;
                 }
+                historyL=l;
                 const Va=Math.sqrt(ball.vx*ball.vx+ball.vy*ball.vy);
                 const Vb=Math.sqrt(ball1.vx*ball1.vx+ball1.vy*ball1.vy);
                 document.getElementById('red').innerHTML='总动能:'+(Vb*Vb*ball1.m*0.5+Va*Va*ball.m*0.5);
