@@ -1,5 +1,6 @@
 body{
   background-color: transparent;
+  width: 100%;
 }
 nav {
     display: flex;
@@ -110,5 +111,5 @@ nav {
     font-family: 'KaiTi';
     transition: 500ms;
     margin-left: 150px;
-    margin-top: 100px;
+    margin-top: 50px;
   }
