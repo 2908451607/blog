@@ -47,12 +47,28 @@ body{
     left: 5%;
   }
   #time{
+    width: 500px;
+    height: 250px;
     position: absolute;
-    top: 10%;
-    right: 5%;
+    top: 40%;
+    right: 20%;
+    display: flex;
+    transform: translate(50%,-50%);
     color: rgb(255, 255, 255);
     font-size: x-large;
-    
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    overflow: hidden;
+  }
+
+  #saying{
+    position: absolute;
+    right: 2%;
+    top: 0;
+    font-family: 'KaiTi';
+    transition: 500ms;
+    color: rgba(38, 96, 255, 0.589);
   }
   #explore{
     width: 200px;
@@ -86,13 +102,14 @@ body{
     transition: 2000ms;
   }
   section div{
-    display: grid;
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 700px;
     width: 100%;
     position: relative;
     background-color: rgba(0, 0, 0, 0.193);
+    color: rgba(255, 255, 255, 0.855);
   }
   .block::before{
     content: '';
@@ -119,10 +136,70 @@ body{
   #bangbang::before{
     background-image: url('f.jpg');
   }
+  #img1{
+    border-radius: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+  #left1{
+    position: absolute;
+    left: 10%;
+    width: 25%;
+  }
+  #right1{
+    position: absolute;
+    font-size: 200%;
+    right: 10%;
+    width: 25%;
+  }
   #huangye::before{
     background-image: url('c.jpg');
   }
+  #img2{
+    position: absolute;
+    border-radius:100%;
+    width: 200px;
+    height: 200px;
+    left: 5%;
+    top: 10%;
+  }
+  #img3{
+    position: absolute;
+    border-radius:100%;
+    width: 200px;
+    height: 200px;
+    right: 5%;
+    top: 10%;
+  }
   #white::before{
     background-image: url('d.webp');
+  }
+  #water-poem{
+    position: absolute;
+    right: 2%;
+    top: 50%;
+  }
+  #catcat{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    bottom: 2%;
+    right: 10%;
+  }
+  #laoin::before{
+    background-image: url('4.png');
+  }
+  #jiatao::before{
+    background-image: url('2.jpg');
+  }
+  #desc::before{
+    background-image: url('3.webp');
+  }
+  #centertext{
+    position: absolute;
+    top: 45%;
+    width: 40%;
   }
 

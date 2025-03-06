@@ -5,6 +5,8 @@ const background=document.getElementById('background');
 const introduce=document.getElementById('introduce');
 const image=document.getElementsByTagName('img');
 const time=document.getElementById('time');
+const says=document.getElementById('saying');
+var id=0;
 const developer = [
   {"saying": "嵩高维岳，峻极于天。——《诗经·大雅·嵩高》"},        //蹑景
   {"saying": "珠露春华返，璇霜秋照晚。——王融《青青河畔草》"},     //白何乐
@@ -12,9 +14,8 @@ const developer = [
   {"saying": "风驰电逝，蹑景追飞。——嵇康《赠秀才入军》"},        //蹑景
   {"saying": "八戒夜持香火印，三光朝念蕊珠篇。——白居易《白发》"},  //LaoIn
   {"saying": "金阙明光后圣君，流津焕彩结丹云。——宋佶《太清乐》"},  //desc
-  {"saying": "涛声夜入伍员庙，柳色春藏苏小家。——白居易《杭州春望》"}//'风屿'
+  {"saying": "涛声夜入伍员庙，柳色春藏苏小家。——白居易《杭州春望》"}//风屿
 ];
-
 explore.addEventListener('click',function(){
   main.style.top='-100%';
   main.style.opacity='0';
@@ -25,6 +26,16 @@ explore.addEventListener('click',function(){
     introduce.style.overflow='unset'; 
   },500);
 });
+function showsaying(){
+  setTimeout(()=>{
+    document.getElementById('saying').innerHTML=developer[id++].saying;
+    if(id==7) id=0;
+  },500);
+  says.style.opacity=0;
+  setTimeout(()=>{
+    says.style.opacity=1;
+  },1000);
+};
 function getdata(){
   const now=new Date();
   const year=now.getFullYear();
@@ -33,3 +44,5 @@ function getdata(){
   document.getElementById('time').innerHTML=year+'.'+String(month).padStart(2,'0')+'.'+String(day).padStart(2,'0');
 }
 getdata();
+showsaying();
+setInterval(showsaying,5000);
