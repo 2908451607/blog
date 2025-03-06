@@ -4,6 +4,7 @@ const main=document.getElementById('main');
 const background=document.getElementById('background');
 const introduce=document.getElementById('introduce');
 const image=document.getElementsByTagName('img');
+const time=document.getElementById('time');
 const developer = [
   {"saying": "嵩高维岳，峻极于天。——《诗经·大雅·嵩高》"},        //蹑景
   {"saying": "珠露春华返，璇霜秋照晚。——王融《青青河畔草》"},     //白何乐
@@ -21,6 +22,14 @@ explore.addEventListener('click',function(){
   background.style.opacity=0;
   setTimeout(()=>{
     introduce.style.opacity=1;
-    introduce.style.overflow='unset';
+    introduce.style.overflow='unset'; 
   },500);
 });
+function getdata(){
+  const now=new Date();
+  const year=now.getFullYear();
+  const month=now.getMonth();
+  const day=now.getDay();
+  document.getElementById('time').innerHTML=year+'.'+String(month).padStart(2,'0')+'.'+String(day).padStart(2,'0');
+}
+getdata();
