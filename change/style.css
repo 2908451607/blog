@@ -1,94 +1,39 @@
-body{
-  background-color: transparent;
-  width: 100%;
+#canvas1{
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  pointer-events: none;
 }
-nav {
-    display: flex;
-    background-color: #ffffff;
-    padding: 10px;
-    padding-left: 2%;
-    font-size: xx-large;
-  }
-  #canvas1{
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-  }
-  .switch {
-    position:absolute;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-    margin: 10px 30px;
-    margin-right: 5px;
-    right: 80px;
-  }
-  
-  .switch input { 
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #2196F3;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-  
-  input:checked + .slider:before {
-    transform: translateX(26px);
-  }
-  
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
-  #status{
-    color: white;
-    font-size: medium;
-  }  
-  body{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    position:relative;
-    font-size: xx-large;
-  }
+body{
+  width: 100%;
+  position:relative;
+  font-size: xx-large;
+}
+#background{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  opacity: 0.1;
+  z-index: -1;
+  background-image: url('388379538bf2af745f3f7cfea82816a2.jpg');
+  background-size: cover;
+  transition: 1000ms;
+}
+#main{
+  width: 100%;
+  position: fixed;
+  top: 5%;
+  transition: 1500ms;
+}
   #logo{
       font-weight: 1000;
       line-height: 50px;
       font-size: 200%;
       transition: 200ms;
+      margin-top: 50px;
       width: 400px;
       height:90px;
       background:linear-gradient(150deg,rgb(255, 30, 255),rgb(0, 191, 255));
@@ -96,20 +41,85 @@ nav {
       background-clip: text;
       color: transparent;
       line-height: 80px;
-      margin-left: 150px;
+      margin-left: 15%;
   }
   #welcome{
     color: rgb(62, 62, 62);
     margin-top: 10px;
     line-height: 80px;
     width: 700px;
-    margin-left: 150px;
+    margin-left: 15%;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
-  #saying{
+  #explore{
+    width: 200px;
+    height: 70px;
     position: absolute;
-    font-family: 'KaiTi';
-    transition: 500ms;
-    margin-left: 150px;
-    margin-top: 50px;
+    transform: translate(50%,50%);
+    right:20%;
+    bottom: 0;
+    border: none;
+    border-radius: 40px;
+    background-color: rgba(0, 136, 255, 0.674);
+    box-shadow: 0 0 5px black;
+    font-size: xx-large;
+    transition: 100ms;
+    background: linear-gradient(140deg,rgba(255, 166, 0, 0.725),rgba(242, 0, 255, 0.555),rgba(0, 225, 255, 0.763));
   }
+  #explore:hover{
+    width: 210px;
+    height: 75px;
+  }
+  #explore:active{
+    width: 200px;
+    height: 65px;
+  }
+  section{
+    width: 100%;
+    position: relative;
+    height: 0;
+    overflow:hidden;
+    opacity: 0;
+    transition: 2000ms;
+  }
+  section div{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+    width: 100%;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.193);
+  }
+  .block::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+    z-index: -1;
+    opacity:1;
+    background-size: cover;
+  }
+  #intro{
+    color: white;
+    font-size: 200%;
+    font-weight: 900;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+  }
+  #intro::before{
+    background-image: url('mount.jpg');
+  }
+  #bangbang::before{
+    background-image: url('f.jpg');
+  }
+  #huangye::before{
+    background-image: url('c.jpg');
+  }
+  #white::before{
+    background-image: url('d.webp');
+  }
+
