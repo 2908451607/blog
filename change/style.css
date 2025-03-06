@@ -42,12 +42,12 @@ body{
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      margin-left: 2%;
+      margin-left: 5%;
   }
   #actiontext{
     width: 400px;
     position: absolute;
-    left: 5%;
+    left:8%;
   }
   #time{
     width: 500px;
