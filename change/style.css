@@ -104,11 +104,11 @@ body{
     opacity: 0;
     transition: 2000ms;
   }
-  section div{
+  .block{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 700px;
+    height: 120vh;
     width: 100%;
     position: relative;
     background-color: rgba(0, 0, 0, 0.193);
@@ -139,26 +139,27 @@ body{
   #bangbang::before{
     background-image: url('f.jpg');
   }
+  #huangye::before{
+    background-image: url('c.jpg');
+  }
+  #white::before{
+    background-image: url('d.webp');
+  }
+  #laoin::before{
+    background-image: url('4.png');
+  }
+  #jiatao::before{
+    background-image: url('2.jpg');
+  }
+  #desc::before{
+    background-image: url('3.webp');
+  }
   #img1{
     border-radius: 100%;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
-  }
-  #left1{
-    position: absolute;
-    left: 10%;
-    width: 25%;
-  }
-  #right1{
-    position: absolute;
-    font-size: 200%;
-    right: 10%;
-    width: 25%;
-  }
-  #huangye::before{
-    background-image: url('c.jpg');
   }
   #img2{
     position: absolute;
@@ -176,8 +177,21 @@ body{
     right: 5%;
     top: 10%;
   }
-  #white::before{
-    background-image: url('d.webp');
+  #left1{
+    position: absolute;
+    left: 10%;
+    width: 25%;
+  }
+  #right1{
+    position: absolute;
+    font-size: 200%;
+    right: 10%;
+    width: 25%;
+  }
+  #centertext{
+    position: absolute;
+    top: 45%;
+    width: 40%;
   }
   #water-poem{
     position: absolute;
@@ -191,18 +205,3 @@ body{
     bottom: 2%;
     right: 10%;
   }
-  #laoin::before{
-    background-image: url('4.png');
-  }
-  #jiatao::before{
-    background-image: url('2.jpg');
-  }
-  #desc::before{
-    background-image: url('3.webp');
-  }
-  #centertext{
-    position: absolute;
-    top: 45%;
-    width: 40%;
-  }
-
