@@ -22,7 +22,7 @@ body{
   opacity: 0.3;
   z-index: -1;
   background-image: url('e.png');
-  background-size:100%;
+  background-size:cover;
   transition: 1000ms;
 }
 #main{
