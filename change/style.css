@@ -49,11 +49,10 @@ body{
     position: absolute;
     left:8%;
   }
-  #time{
+  /* #time{
     width: 500px;
-    height: 250px;
     position: absolute;
-    top: 40%;
+    top: 90%;
     right: 20%;
     display: flex;
     transform: translate(50%,-50%);
@@ -63,8 +62,7 @@ body{
     align-items: center;
     border-radius: 40px;
     overflow: hidden;
-  }
-
+  } */
   #saying{
     position: absolute;
     right: 2%;
@@ -108,11 +106,13 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 120vh;
+    height: 900px;
     width: 100%;
     position: relative;
     background-color: rgba(0, 0, 0, 0.193);
     color: rgba(255, 255, 255, 0.855);
+    perspective: 800px;
+    text-align: center;
   }
   .block::before{
     content: '';
@@ -166,42 +166,61 @@ body{
     border-radius:100%;
     width: 200px;
     height: 200px;
-    left: 5%;
-    top: 10%;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%,-50%);
   }
   #img3{
     position: absolute;
     border-radius:100%;
     width: 200px;
     height: 200px;
-    right: 5%;
-    top: 10%;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%,-50%);
   }
   #left1{
     position: absolute;
     left: 10%;
-    width: 25%;
+    width: 27%;
+    transform:rotateY(45deg);
   }
   #right1{
     position: absolute;
     font-size: 200%;
     right: 10%;
     width: 25%;
+    transform: rotateY(-70deg);
   }
   #centertext{
-    position: absolute;
-    top: 45%;
     width: 40%;
   }
   #water-poem{
-    position: absolute;
-    right: 2%;
-    top: 50%;
+
   }
   #catcat{
+    position: absolute;
+    right: 10%;
+    top: 10%;
     width: 150px;
     height: 150px;
+    border-radius: 20px;
+  }
+
+  #wife1{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
     position: absolute;
-    bottom: 2%;
-    right: 10%;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%,-50%);
+  }
+  #carpy{
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    position: absolute;
+    top: 10%;
+    right: 5%;
   }

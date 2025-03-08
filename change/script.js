@@ -4,9 +4,19 @@ const main=document.getElementById('main');
 const background=document.getElementById('background');
 const introduce=document.getElementById('introduce');
 const image=document.getElementsByTagName('img');
-const time=document.getElementById('time');
+//const time=document.getElementById('time');
 const says=document.getElementById('saying');
+const wife1=document.getElementById('wife1');
 var id=0;
+let wifePosition={
+  centerx:50,
+  centery:20,
+  x:50,
+  y:40,
+  angle:0,
+  speed:0.01,
+  r:20
+}
 const developer = [
   {"saying": "嵩高维岳，峻极于天。——《诗经·大雅·嵩高》"},        //蹑景
   {"saying": "珠露春华返，璇霜秋照晚。——王融《青青河畔草》"},     //白何乐
@@ -26,6 +36,19 @@ explore.addEventListener('click',function(){
     introduce.style.overflow='unset'; 
   },500);
 });
+showsaying();
+setInterval(showsaying,5000);
+setInterval(wifeMove,10);
+
+
+function wifeMove(){
+  wifePosition.angle+=wifePosition.speed;
+  const theta=wifePosition.angle+Math.PI*2;
+  wifePosition.x=wifePosition.centerx+(wifePosition.r*Math.cos(theta))*0.6;
+  wifePosition.y=wifePosition.centery+(wifePosition.r*Math.sin(theta));
+  wife1.style.left=wifePosition.x+'%';
+  wife1.style.top=wifePosition.y+'%';
+}
 function showsaying(){
   setTimeout(()=>{
     document.getElementById('saying').innerHTML=developer[id++].saying;
@@ -36,13 +59,18 @@ function showsaying(){
     says.style.opacity=1;
   },1000);
 };
+
+
+
+
+
+/* 
 function getdata(){
   const now=new Date();
   const year=now.getFullYear();
   const month=now.getMonth();
   const day=now.getDay();
   document.getElementById('time').innerHTML=year+'.'+String(month).padStart(2,'0')+'.'+String(day).padStart(2,'0');
-}
-getdata();
-showsaying();
-setInterval(showsaying,5000);
+  } 
+  getdata();
+  */
