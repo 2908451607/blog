@@ -147,14 +147,29 @@ body{
     background-size: cover;
   }
   #intro{
-    color: white;
-    font-size: 200%;
-    font-weight: 900;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    height: 900px;
+    width: 100%;
+    font-size: 500%;
+    font-weight: 1000;
+    background-image: url(mount.jpg);
+    background-position: 0 0;
+    background-size: cover;
     text-align: center;
+    position: relative;
+    color: transparent;
+    background-clip: text;
+    overflow: hidden;
   }
   #intro::before{
-    background-image: url('mount.jpg');
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: inherit;
+    background-size: cover;
+    z-index: -1;
   }
   #bangbang::before{
     background-image: url('f.jpg');

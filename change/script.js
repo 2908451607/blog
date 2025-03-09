@@ -7,6 +7,7 @@ const image=document.getElementsByTagName('img');
 //const time=document.getElementById('time');
 const says=document.getElementById('saying');
 const wife=document.getElementsByClassName('wife');
+const introtext=document.getElementById('intro');
 var id=0;
 var wifePositions=[];
 for(var i=0;i<3;i++){
@@ -42,8 +43,15 @@ explore.addEventListener('click',function(){
 showsaying();
 setInterval(showsaying,5000);
 setInterval(wifeMove,10);
+window.addEventListener('scroll',()=>{
+  const scrollY=window.scrollY;
+  if(scrollY!=0){
+    introtext.style.backgroundPositionX=scrollY+'px';
+    introtext.style.backgroundPositionY=scrollY*0.5+'px';
 
-1
+  }
+})
+
 function wifeMove(){
   wifePositions.forEach((wifePosition,index)=>{
     wifePosition.angle+=wifePosition.speed;
