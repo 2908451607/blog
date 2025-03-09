@@ -8,6 +8,7 @@ const image=document.getElementsByTagName('img');
 /* const says=document.getElementById('saying'); */
 const wife=document.getElementsByClassName('wife');
 const introtext=document.getElementById('intro');
+const img1=document.getElementsByClassName('img1');
 const high=900;
 var id=0;
 var wifePositions=[];
