@@ -72,26 +72,46 @@ body{
     color: rgba(38, 96, 255, 0.589);
   }
   #explore{
-    width: 200px;
+    width: 250px;
     height: 70px;
     border: none;
     position: absolute;
     right: 20%;
     bottom:20%;
     transform: translate(50%,50%);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.13);
     border-radius: 40px;
-    background-color: rgba(0, 136, 255, 0.674);
-    box-shadow: 0 0 5px black;
     font-size: xx-large;
-    transition: 100ms;
-    background: linear-gradient(140deg,rgba(255, 166, 0, 0.581),rgba(242, 0, 255, 0.236),rgba(0, 225, 255, 0.581));
+    transition:  300ms ease;
+    background: linear-gradient(90deg,rgb(0, 234, 255),rgba(242, 0, 255, 0.519),rgba(255, 255, 0, 0.738),rgb(0, 234, 255));
+    background-size: 400%;
   }
   #explore:hover{
-    width: 210px;
-    height: 75px;
+    animation: light 8s infinite;
+  }
+  #explore::before{
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    bottom: -5px;
+    right: -5px;
+    background: linear-gradient(90deg,rgba(0, 234, 255, 0.577),rgba(242, 0, 255, 0.632),rgba(0, 225, 255, 0.637),rgba(255, 238, 0, 0.648),rgba(0, 234, 255, 0.577));
+    background-size: 400%;
+    border-radius: 40px;
+    filter: blur(20px);
+    z-index: -1;
+  }
+  #explore:hover::before{
+    animation: light 8s infinite;
+  }
+  @keyframes light{
+    100%{
+      background-position: -400% 0;
+    }
   }
   #explore:active{
-    width: 200px;
+    width: 240px;
     height: 65px;
   }
   section{
