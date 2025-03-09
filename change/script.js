@@ -14,7 +14,7 @@ var wifePositions=[];
 for(var i=0;i<3;i++){
   wifePositions.push({
     centerx:50,
-  centery:20,
+  centery:50,
   x:50,
   y:40,
   angle:0,
