@@ -5,9 +5,10 @@ const background=document.getElementById('background');
 const introduce=document.getElementById('introduce');
 const image=document.getElementsByTagName('img');
 //const time=document.getElementById('time');
-const says=document.getElementById('saying');
+/* const says=document.getElementById('saying'); */
 const wife=document.getElementsByClassName('wife');
 const introtext=document.getElementById('intro');
+const high=900;
 var id=0;
 var wifePositions=[];
 for(var i=0;i<3;i++){
@@ -32,7 +33,7 @@ const developer = [
 ];
 explore.addEventListener('click',function(){
   main.style.top='-100%';
-  main.style.opacity='0';
+  main.style.opacity=0;
   background.style.backgroundImage="url('mount.jpg')";
   background.style.opacity=0;
   setTimeout(()=>{
@@ -40,14 +41,16 @@ explore.addEventListener('click',function(){
     introduce.style.overflow='unset'; 
   },500);
 });
-showsaying();
-setInterval(showsaying,5000);
+/* showsaying();
+setInterval(showsaying,5000); */
 setInterval(wifeMove,10);
 window.addEventListener('scroll',()=>{
   const scrollY=window.scrollY;
   if(scrollY!=0){
     introtext.style.backgroundPositionX=scrollY+'px';
     introtext.style.backgroundPositionY=scrollY*0.5+'px';
+  }
+  if(scrollY>=high){
 
   }
 })
@@ -62,7 +65,7 @@ function wifeMove(){
     wife[index].style.top=wifePosition.y+'%';
   })
 }
-function showsaying(){
+/* function showsaying(){
   setTimeout(()=>{
     document.getElementById('saying').innerHTML=developer[id++].saying;
     if(id==7) id=0;
@@ -71,7 +74,7 @@ function showsaying(){
   setTimeout(()=>{
     says.style.opacity=1;
   },1000);
-};
+}; */
 
 
 
